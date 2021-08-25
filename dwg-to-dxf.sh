@@ -15,6 +15,11 @@ for folder in $(find /data -type f -name "*.dwg" -exec dirname {} \; | sort -u);
         "${folder}" \
         "${folder}" \
         ACAD2018 DXF 1 1 "*.dwg"
+        # ACAD2015 DXF 1 1 "*.dwg"
+        # ACAD2000 DXF 1 1 "*.dwg"
+        # ACAD2014 DXF 1 1 "*.dwg"
+        # ACAD12 DXF 1 1 "*.dwg"
+        # ACAD2010 DXF 1 1 "*.dwg"
 done
 
 echo "finished !"
