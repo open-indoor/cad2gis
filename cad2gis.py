@@ -21,7 +21,7 @@ import math
 
 logger = logging.getLogger('autocad-to-gis')
 logger.setLevel(logging.DEBUG)
-logging.basicConfig(filename='log/autocad-to-gis.log', filemode='w')
+logging.basicConfig(filename='log/cad2gis.log', filemode='w')
 # logger.info('start logger')
 
 # #!/bin/bash
@@ -72,16 +72,16 @@ def allowed_setup(filename):
            filename.rsplit('.', 1)[1].lower() in {'json'}
 
 # wget http://localhost:9090/data/8fa47945beae4b56af301f0b9e0a3dcf.dwg
-# @app.route('/api/autocad-to-gis/data/<name>')
+# @app.route('/api/cad2gis/data/<name>')
 # def download_file(name):
     # return send_from_directory(app.config["UPLOAD_FOLDER"], name)
 
 
-@app.route('/api/autocad-to-gis/get_geojson/<file_id>', methods=['GET'])
+@app.route('/api/cad2gis/get_geojson/<file_id>', methods=['GET'])
 def get_geojson(file_id):
     return send_from_directory(app.config["UPLOAD_FOLDER"], file_id, "geojson", "plan.geojson")
 
-@app.route('/api/autocad-to-gis/wait_geojson/<file_id>', methods=['GET'])
+@app.route('/api/cad2gis/wait_geojson/<file_id>', methods=['GET'])
 def wait_geojson(file_id):
     file_path=os.path.join(app.config["UPLOAD_FOLDER"], file_id, "geojson", "plan.geojson")
     status = 400
@@ -100,11 +100,11 @@ def wait_geojson(file_id):
     )
 
 # curl -F "file=@autocad-to-gis/data/kingconf/sett_22-11_14.dxf" \
-#     https://autocad-to-geojson.openindoor.io/api/autocad-to-gis/convert/-0.8782/47.0545/0.0/0.0/45.0/0.5
-@app.route('/api/autocad-to-gis/convert/<float(signed=True):lng>/<float(signed=True):lat>/<float(signed=True):xoff>/<float(signed=True):yoff>/<float(signed=True):rot>/<float(signed=True):scale>', methods=['POST'])
-@app.route('/api/autocad-to-gis/convert/<float(signed=True):lng>/<float(signed=True):lat>/<float(signed=True):xoff>/<float(signed=True):yoff>/<float(signed=True):rot>', methods=['POST'])
-@app.route('/api/autocad-to-gis/convert/<float(signed=True):lng>/<float(signed=True):lat>/<float(signed=True):xoff>/<float(signed=True):yoff>', methods=['POST'])
-@app.route('/api/autocad-to-gis/convert/<float(signed=True):lng>/<float(signed=True):lat>', methods=['POST'])
+#     https://autocad-to-geojson.openindoor.io/api/cad2gis/convert/-0.8782/47.0545/0.0/0.0/45.0/0.5
+@app.route('/api/cad2gis/convert/<float(signed=True):lng>/<float(signed=True):lat>/<float(signed=True):xoff>/<float(signed=True):yoff>/<float(signed=True):rot>/<float(signed=True):scale>', methods=['POST'])
+@app.route('/api/cad2gis/convert/<float(signed=True):lng>/<float(signed=True):lat>/<float(signed=True):xoff>/<float(signed=True):yoff>/<float(signed=True):rot>', methods=['POST'])
+@app.route('/api/cad2gis/convert/<float(signed=True):lng>/<float(signed=True):lat>/<float(signed=True):xoff>/<float(signed=True):yoff>', methods=['POST'])
+@app.route('/api/cad2gis/convert/<float(signed=True):lng>/<float(signed=True):lat>', methods=['POST'])
 def convert_all(lng, lat, xoff = 0.0, yoff = 0.0, rot = 0.0, scale = 1.0):
     return convert_all_(lng, lat, xoff, yoff, rot, scale)
 
