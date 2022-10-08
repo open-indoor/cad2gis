@@ -20,14 +20,14 @@ docker-compose up cad2gis
 
 ### Specs
 ```
-https://autocad-to-geojson.openindoor.io/api/cad2gis/convert/_LNG_/_LAT_/_XOFFSET_/_YOFFSET_/_ROTATION_/_SCALE_
+https://cad2gis.openindoor.io/api/convert/_LNG_/_LAT_/_XOFFSET_/_YOFFSET_/_ROTATION_/_SCALE_
 ```
 
 ### Example
 
 ```
 curl -F "file=@data/my_dxf.dxf" \
-    https://autocad-to-geojson.openindoor.io/api/cad2gis/convert/3.93/43.56 \
+    https://cad2gis.openindoor.io/api/convert/3.93/43.56 \
     > my_geojson.geojson
 ```
 
@@ -39,7 +39,7 @@ Result:
 
 ```
 curl -F "file=@data/my_dxf.dxf" \
-    https://autocad-to-geojson.openindoor.io/api/cad2gis/convert/3.93/43.56/0.01/0.0 \
+    https://cad2gis.openindoor.io/api/cad2gis/convert/3.93/43.56/0.01/0.0 \
     > my_geojson.geojson
 ```
 
@@ -47,7 +47,7 @@ curl -F "file=@data/my_dxf.dxf" \
 
 
 ```
-curl -F "file=@cad2gis/data/kingconf/sett_22-11_23.dxf"     https://autocad-to-geojson.openindoor.io/api/convert/3.93/43.56/0.01/0.0 > cad2gis/data/kingconf/sett_22-11_23.geojson
+curl -F "file=@cad2gis/data/kingconf/sett_22-11_23.dxf"     https://cad2gis.openindoor.io/api/convert/3.93/43.56/0.01/0.0 > cad2gis/data/kingconf/sett_22-11_23.geojson
 ```
 
 ## Other...
@@ -55,14 +55,14 @@ curl -F "file=@cad2gis/data/kingconf/sett_22-11_23.dxf"     https://autocad-to-g
 curl \
     -F "file=@cad2gis/data/kingconf/sett_22-11_23.dxf" \
     -F "setup=@cad2gis/data/kingconf/setup.json" \
-    https://autocad-to-geojson.openindoor.io/api/convert/3.9425/43.5695/0.0/0.0/236.23/0.25 \
+    https://cad2gis.openindoor.io/api/convert/3.9425/43.5695/0.0/0.0/236.23/0.25 \
     > cad2gis/data/kingconf/sett_22-11_23.geojson
 ```
 ```
 curl \
     -F "file=@cad2gis/data/kingconf/sett_22-11_23.dxf" \
     -F "setup=@cad2gis/data/kingconf/setup.json" \
-    https://autocad-to-geojson.openindoor.io/api/convert/3.94238/43.56971/0.0/0.0/236.23/0.25 \
+    https://cad2gis.openindoor.io/api/convert/3.94238/43.56971/0.0/0.0/236.23/0.25 \
     > cad2gis/data/kingconf/sett_22-11_23.geojson
 ```
 
