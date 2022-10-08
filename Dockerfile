@@ -42,9 +42,9 @@ RUN dpkg -i /openindoor/ODAFileConverter_QT5_lnxX64_8.3dll_23.5.deb \
 COPY ./requirements.txt /openindoor/requirements.txt
 RUN pip install -r requirements.txt
 
-COPY ./autocad-to-gis.py /openindoor/autocad-to-gis.py
+COPY ./cad2gis.py /openindoor/cad2gis.py
 COPY ./autocad-to-ascii_dxf.sh /openindoor/autocad-to-ascii_dxf.sh
 RUN chmod +x /openindoor/autocad-to-ascii_dxf.sh
-RUN chmod +x /openindoor/autocad-to-gis.py
+RUN chmod +x /openindoor/cad2gis.py
 
-CMD /openindoor/autocad-to-gis.py
+CMD /openindoor/cad2gis.py

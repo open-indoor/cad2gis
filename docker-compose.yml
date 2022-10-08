@@ -16,6 +16,7 @@ services:
       - caddy_data:/data
       - caddy_config:/config
     command: caddy run --config /etc/caddy/Caddyfile --adapter caddyfile --watch
+    network_mode: bridge
 
   cad2gis:
     build:
