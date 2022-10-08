@@ -1,4 +1,4 @@
-#192.99.21.123
+cors
 
 {
 	order rate_limit before reverse_proxy
@@ -14,16 +14,16 @@
     #     reverse_proxy http://autocad-to-gis-websocket:5000
     # }
 
-    handle /websockets/* {
-        reverse_proxy http://autocad-to-gis-websocket:5000
-    }    
+    # handle /websockets/* {
+    #     reverse_proxy http://autocad-to-gis-websocket:5000
+    # }    
 
-    handle /api/autocad-to-gis/convert/* {
-        reverse_proxy http://autocad-to-gis:5000
+    handle /api/convert/* {
+        reverse_proxy http://cad2gis:5000
     }    
 
     handle /api/* {
-        reverse_proxy http://autocad-to-gis:5000
+        reverse_proxy http://cad2gis:5000
     }
 
     handle_path /data/* {
